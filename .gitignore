@@ -1,0 +1,5 @@
+.venv
+.idea
+.env
+.ipynb_checkpoints
+test_gemini.py

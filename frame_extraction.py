@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 import os
 
-# Create directories
+
 VIDEO_DIR = Path("data/raw_videos")
 FRAMES_DIR = Path("data/frames")
 SCENES_DIR = Path("data/scenes")
@@ -46,10 +46,6 @@ def extract_frames(video_path, fps=2):
     cap.release()
     return frames
 
-
-import numpy as np  # Add this at top if missing
-
-
 def detect_scenes_fixed_interval(frames, video_path):
     """Every 8 seconds = guaranteed good scenes (Float-safe)"""
     scenes = []
@@ -86,8 +82,6 @@ def detect_scenes_fixed_interval(frames, video_path):
 
     return scenes
 
-
-# === RUN PIPELINE ===
 print("GACS Stage 1-2 (OpenCV Scene Detection)")
 video_records = []
 scene_records = []
@@ -128,7 +122,6 @@ for video_file in videos_found:
 
     print(f"   {len(scenes)} scenes detected")
 
-# Save GACS CSVs
 pd.DataFrame(video_records).to_csv(DATA_DIR / "video_metadata.csv", index=False)
 pd.DataFrame(scene_records).to_csv(DATA_DIR / "scene_metadata.csv", index=False)
 
