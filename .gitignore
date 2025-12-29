@@ -3,3 +3,6 @@
 .env
 .ipynb_checkpoints
 test_gemini.py
+data/frames
+data/raw_videos
+data/scenes
